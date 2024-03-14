@@ -1,0 +1,13 @@
+<suite name="testSuite">
+    <parameter name="name" value="Aman"/>
+    <parameter name="password" value="Aman@1234"/>
+    <test name="test">
+        <classes>
+            <class name="Selenium.TestData.Parameters.ParametersClass">
+                <methods>
+                    <include name="testLogin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

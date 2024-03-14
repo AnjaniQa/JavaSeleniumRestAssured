@@ -1,0 +1,8 @@
+<suite name="spicejet">
+    <test name="spicejet">
+        <parameter name="mobile" value="123456789"/>
+        <classes>
+            <class name="Selenium.POM.SimplePOM.TestClass"/>
+        </classes>
+    </test>
+</suite>
