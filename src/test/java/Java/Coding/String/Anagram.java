@@ -35,7 +35,6 @@ public class Anagram {
         return true;
     }
 
-
     public static void main(String[] args) {
 
         String s1 = "aabbccdd";
@@ -48,7 +47,5 @@ public class Anagram {
         } else {
             System.out.println("Not an Anagram");
         }
-
-
     }
 }

@@ -7,7 +7,7 @@ public class LongestCommonPrefix {
             return "";
         }
         String prefix = s[0];
-        for(int i=0; i<s.length; i++) {
+        for(int i=1; i<s.length; i++) {
             while(s[i].indexOf(prefix)!=0) {
                 int index = s[i].indexOf(prefix);
                 prefix = prefix.substring(0,prefix.length()-1);

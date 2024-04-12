@@ -20,7 +20,12 @@ public class LinkText {
     @Test
     public void testLinkText() {
         driver.get("https://www.google.com/");
-        //driver.findElement(By.linkText("हिन्दी")).click();
         driver.findElement(By.linkText("About")).click();
+    }
+
+    @Test
+    public void testLinkText1() {
+        driver.get("https://www.javatpoint.com/java-tutorial");
+        driver.findElement(By.linkText("Hello Java Program")).click();
     }
 }

@@ -48,4 +48,12 @@ public class TakeScreenshotOnTestFailure {
 
     }
 
+    @AfterMethod
+    public void takeScreenshot1(ITestResult iTestResult) throws Exception {
+        if (iTestResult.getStatus() == ITestResult.FAILURE) {
+            TakesScreenshot ts = (TakesScreenshot) driver;
+            File source = ts.getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(source, new File("./target/report" + iTestResult.getName() + System.currentTimeMillis() + ".png"));
+        }
+    }
 }

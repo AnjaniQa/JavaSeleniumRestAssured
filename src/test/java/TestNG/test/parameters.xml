@@ -1,0 +1,13 @@
+<suite name="Test">
+    <parameter name="A" password="X"/>
+    <parameter name="B" password="Y"/>
+    <test name="test">
+        <classes>
+            <class name="TestNG.ParametersClass">
+                <methods>
+                    <include name="testParameters"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

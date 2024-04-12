@@ -35,4 +35,20 @@ public class ConfigUtils {
         String value = globalConfig.getString(propertyName);
         return value;
     }
+
+    private static PropertiesConfiguration createConfig1(String pathName) {
+        try {
+            FileBasedConfigurationBuilder<PropertiesConfiguration> builder = new
+                    FileBasedConfigurationBuilder<>(PropertiesConfiguration.class);
+            PropertiesBuilderParameters propertiesBuilderParameters = new Parameters().properties();
+            propertiesBuilderParameters.setFileName(pathName);
+            propertiesBuilderParameters.setThrowExceptionOnMissing(false);
+            builder.configure(propertiesBuilderParameters);
+            PropertiesConfiguration propertiesConfiguration = builder.getConfiguration();
+            return  propertiesConfiguration;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return new PropertiesConfiguration();
+    }
 }

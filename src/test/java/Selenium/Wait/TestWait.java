@@ -4,10 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.*;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import java.time.Duration;
@@ -52,7 +49,7 @@ public class TestWait {
     }
 
     @Test
-    public void fluentWait() {
+    public void fluentWaitUsingFunctionInterface() {
         driver.get("https://www.google.com/");
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(10))
@@ -67,5 +64,28 @@ public class TestWait {
         });
     }
 
-    // WebElement webElement = wait.until(driver -> driver.findElement(By.tagName("textarea")));
+    @Test
+    public void fluentWaitUsingExpectedConditionInterface() {
+        driver.get("https://www.google.com/");
+        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+                .withTimeout(Duration.ofSeconds(10))
+                .pollingEvery(Duration.ofSeconds(5))
+                .ignoring(NoSuchElementException.class);
+        By locator = By.id("id");
+        wait.until(getExpectedCondition(locator));
+    }
+
+    public ExpectedCondition<Boolean> getExpectedCondition(By locator) {
+        return new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver input) {
+                try {
+                    driver.findElement(locator);
+                    return true;
+                } catch(NoSuchElementException e) {
+                    return false;
+                }
+            }
+        };
+    }
 }

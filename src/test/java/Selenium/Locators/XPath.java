@@ -19,7 +19,7 @@ public class XPath {
     }
 
     @Test
-    public void singleSlasg() {
+    public void singleSlash() {
         driver.get("https://www.google.com/");
         driver.findElement(By.xpath("html/body/div[1]/div[1]/div/div/div/div/div[2]/div/div")).click();
         driver.close();
@@ -60,7 +60,7 @@ public class XPath {
     @Test
     public void or() throws Exception {
         driver.get("https://www.google.com/");
-        driver.findElement(By.xpath("//*[@class='gLFyf' and @aria-controls='Alh6id']")).sendKeys("Test");
+        driver.findElement(By.xpath("//*[@class='gLFyf' or @aria-controls='Alh6id']")).sendKeys("Test");
         Thread.sleep(2000);
         driver.close();
     }

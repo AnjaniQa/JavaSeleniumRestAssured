@@ -8,9 +8,7 @@ public class RegularExpressionClass {
         String m = "a";
         String regex = "[abcd]";
         System.out.println(Pattern.matches(regex, m));
-
         System.out.println(Pattern.matches("[a-zA_Z]", "z"));
-
     }
 
 }
