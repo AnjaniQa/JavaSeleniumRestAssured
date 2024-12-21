@@ -1,0 +1,7 @@
+<suite name="testSuite">
+    <test name="test">
+        <classes>
+            <class name="Revision.TestNG.TestNG"/>
+        </classes>
+    </test>
+</suite>

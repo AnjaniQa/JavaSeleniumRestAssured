@@ -1,0 +1,7 @@
+<suite name="test">
+    <test name="test" parallel="methods" thread-count="2">
+        <classes>
+            <class name="Revision.TestNG.ParallelExecution"/>
+        </classes>
+    </test>
+</suite>
